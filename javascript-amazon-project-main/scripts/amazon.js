@@ -26,7 +26,7 @@ products.forEach((product) =>{
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class ="js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -48,7 +48,7 @@ products.forEach((product) =>{
           </div>
 
           <button class="add-to-cart-button button-primary js-add-to-cart"
-          data-product-name="${product.name}">
+          data-product-id="${product.id}">
             Add to Cart
           </button>
         </div>
@@ -62,13 +62,13 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML;
 // Code to add items to cart and check whether they've been added before
 document.querySelectorAll('.js-add-to-cart').forEach((button) =>{
   button.addEventListener('click',() =>{
-    const productName = button.dataset.productName;
+    const productId = button.dataset.productId;
 
     let matchingItem;
 
 
     cart.forEach((item) =>{
-      if (productName === item.productName) {
+      if (productId === item.productId) {
         matchingItem=item;
       }
     });
@@ -78,7 +78,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) =>{
     }
     else{
       cart.push({
-        productName: productName,
+        productId: productId,
         quantity: 1
       });
     }
