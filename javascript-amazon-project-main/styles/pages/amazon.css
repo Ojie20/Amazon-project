@@ -130,6 +130,9 @@
   flex: 1;
 }
 
+.show{
+  opacity: 1;
+}
 .added-to-cart {
   color: rgb(6, 125, 98);
   font-size: 16px;
@@ -153,4 +156,7 @@
   width: 100%;
   padding: 8px;
   border-radius: 50px;
+}
+.show{
+  opacity: 1;
 }
