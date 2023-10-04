@@ -1,4 +1,4 @@
-
+// Creates the HTML for the products
 let productsHTML = ''
 
 products.forEach((product) =>{
@@ -47,7 +47,8 @@ products.forEach((product) =>{
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary js-add-to-cart"
+          data-product-name="${product.name}">
             Add to Cart
           </button>
         </div>
@@ -55,6 +56,34 @@ products.forEach((product) =>{
   
 })
 
-console.log(productsHTML);
-
+// Puts the HTML on the page
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
+
+// Code to add items to cart and check whether they've been added before
+document.querySelectorAll('.js-add-to-cart').forEach((button) =>{
+  button.addEventListener('click',() =>{
+    const productName = button.dataset.productName;
+
+    let matchingItem;
+
+
+    cart.forEach((item) =>{
+      if (productName === item.productName) {
+        matchingItem=item;
+      }
+    });
+
+    if(matchingItem){
+      matchingItem.quantity += 1;
+    }
+    else{
+      cart.push({
+        productName: productName,
+        quantity: 1
+      })
+    }
+
+    ;
+    console.log(cart);
+  })
+});
