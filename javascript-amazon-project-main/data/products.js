@@ -1,6 +1,6 @@
 //List of all the products and their attributes
 
-const products = [
+export const products = [
   {
     id: "a",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
