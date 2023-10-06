@@ -107,8 +107,10 @@ document.querySelector('.js-order-summary').innerHTML = cartSummaryHTMl
 document.querySelectorAll('.js-delete-link').forEach((link)=>{
     link.addEventListener('click', ()=>{
       const productId = link.dataset.productId;
+      // calls function to remove Items from cart
       removeFromCart(productId);
 
+      // Removes cart Item from Html
       const container = document.querySelector(`.js-cart-item-container-${productId}`)
       container.remove();
       console.log(container);
