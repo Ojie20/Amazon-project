@@ -52,11 +52,13 @@ cartSummaryHTMl += `
           </div>
           <div class="product-quantity">
             <span>
-              Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+              Quantity: <span class="quantity-label hide-click">${cartItem.quantity}</span>
             </span>
-            <span class="update-quantity-link link-primary">
+            <span class="update-quantity-link link-primary js-update-link hide-click js-update-link-${matchingProduct.id}" data-product-id= "${matchingProduct.id}">
               Update
             </span>
+            <input type="text" class="quantity-input">
+            <span class="save-quantity-link link-primary js-save-link" data-product-id="${matchingProduct.id}">Save</span>
             <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
               Delete
             </span>
@@ -129,3 +131,26 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
       console.log(container);
     })
 })
+
+// Make the update button interactive
+document.querySelectorAll('.js-update-link').forEach((link)=>{
+  link.addEventListener('click', ()=>{
+    const productId = link.dataset.productId;
+
+    document.querySelector(`.js-cart-item-container-${productId}`).classList.add('is-editing-quantity');
+
+    document.querySelector(`.js-quantity-label-${productId}`).classList.add('hide-click');
+
+    document.querySelector(`.js-update-link-${productId}`).classList.add('hide-click');
+  })
+});
+
+// Make the save button interactive
+document.querySelectorAll('.js-save-link').forEach((link)=>{
+  link.addEventListener('click', ()=>{
+    const productId = link.dataset.productId;
+
+    document.querySelector(`.js-cart-item-container-${productId}`).classList.remove('is-editing-quantity');
+
+  })
+}) 
