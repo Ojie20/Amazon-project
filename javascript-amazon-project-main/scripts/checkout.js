@@ -2,6 +2,19 @@ import { cart , removeFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 
 
+// to update the quantity displayed at the checkout section
+function updatecartQuantity() {
+  let cartQuantity = 0;
+  cart.forEach((cartItem) =>{
+    cartQuantity+= cartItem.quantity
+  });
+
+  document.querySelector('.js-checkout-amount').innerHTML = cartQuantity +' items'
+
+}
+
+updatecartQuantity()
+
 let cartSummaryHTMl=''
 
 
