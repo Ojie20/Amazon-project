@@ -1,6 +1,29 @@
-import { cart , removeFromCart, updateQuantity } from "../data/cart.js";
+import { cart , removeFromCart, updateQuantity} from "../data/cart.js";
 import { products } from "../data/products.js";
 
+
+function calculatePrice() {
+  let prePrice=0;
+  cart.forEach((cartItem)=>{
+    const productId = cartItem.productId;
+    let matchingProduct;
+    products.forEach((product)=>{
+      if (product.id=== productId){
+        matchingProduct=product;
+      }
+    });
+    prePrice += matchingProduct.price * cartItem.quantity
+  });
+  document.querySelector('.js-pre-price').innerHTML= prePrice;
+
+  let taxPrice = (prePrice*5)/100
+  document.querySelector('.js-tax-price').innerHTML= taxPrice;
+
+  let totalPrice = prePrice +taxPrice;
+  document.querySelector('.js-total-price').innerHTML= totalPrice;
+}
+
+calculatePrice();
 
 // to update the quantity displayed at the checkout section
 function updatecartQuantity() {
@@ -11,6 +34,7 @@ function updatecartQuantity() {
 
   document.querySelector('.js-checkout-amount').innerHTML = cartQuantity +' items';
 
+  document.querySelector('.js-payment-quantity').innerHTML = cartQuantity
 }
 
 updatecartQuantity();
@@ -129,6 +153,9 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
       const container = document.querySelector(`.js-cart-item-container-${productId}`)
       container.remove();
       console.log(container);
+
+      updatecartQuantity();
+      calculatePrice();
     })
 })
 
@@ -158,7 +185,9 @@ document.querySelectorAll('.js-save-link').forEach((link)=>{
     updateQuantity(productId, newQuantity);
 
     updatecartQuantity();
+
     document.querySelector('.js-quantity-label').innerHTML= newQuantity;
     
+    calculatePrice();
   })
 }) 
