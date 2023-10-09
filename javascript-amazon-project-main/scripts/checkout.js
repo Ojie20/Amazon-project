@@ -1,4 +1,4 @@
-import { cart , removeFromCart } from "../data/cart.js";
+import { cart , removeFromCart, updateQuantity } from "../data/cart.js";
 import { products } from "../data/products.js";
 
 
@@ -9,11 +9,11 @@ function updatecartQuantity() {
     cartQuantity+= cartItem.quantity
   });
 
-  document.querySelector('.js-checkout-amount').innerHTML = cartQuantity +' items'
+  document.querySelector('.js-checkout-amount').innerHTML = cartQuantity +' items';
 
 }
 
-updatecartQuantity()
+updatecartQuantity();
 
 let cartSummaryHTMl=''
 
@@ -52,12 +52,12 @@ cartSummaryHTMl += `
           </div>
           <div class="product-quantity">
             <span>
-              Quantity: <span class="quantity-label hide-click">${cartItem.quantity}</span>
+              Quantity: <span class="quantity-label js-quantity-label hide-click">${cartItem.quantity}</span>
             </span>
             <span class="update-quantity-link link-primary js-update-link hide-click js-update-link-${matchingProduct.id}" data-product-id= "${matchingProduct.id}">
               Update
             </span>
-            <input type="text" class="quantity-input">
+            <input type="number" class="quantity-input js-quantity-input js-quantity-input-${matchingProduct.id}">
             <span class="save-quantity-link link-primary js-save-link" data-product-id="${matchingProduct.id}">Save</span>
             <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
               Delete
@@ -152,5 +152,13 @@ document.querySelectorAll('.js-save-link').forEach((link)=>{
 
     document.querySelector(`.js-cart-item-container-${productId}`).classList.remove('is-editing-quantity');
 
+    const newQuantity = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
+
+    console.log(cart);
+    updateQuantity(productId, newQuantity);
+
+    updatecartQuantity();
+    document.querySelector('.js-quantity-label').innerHTML= newQuantity;
+    
   })
 }) 
