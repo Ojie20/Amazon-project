@@ -131,7 +131,7 @@ export const products = [
       stars: 4.5,
       count: 305
     },
-    price: 2899,
+    price: 3000,
     keywords: [
       "bathroom",
       "cleaning"
@@ -145,7 +145,7 @@ export const products = [
       stars: 4,
       count: 89
     },
-    price: 3390,
+    price: 3500,
     keywords: [
       "shoes",
       "running shoes",
@@ -160,7 +160,7 @@ export const products = [
       stars: 4.5,
       count: 235
     },
-    price: 2070,
+    price: 5000,
     keywords: [
       "robe",
       "swimsuit",
@@ -179,7 +179,7 @@ export const products = [
       stars: 4.5,
       count: 30
     },
-    price: 1560,
+    price: 1200,
     keywords: [
       "accessories",
       "shades"
@@ -193,7 +193,7 @@ export const products = [
       stars: 4.5,
       count: 562
     },
-    price: 2499,
+    price: 2500,
     keywords: [
       "footwear",
       "sandals",
@@ -210,7 +210,7 @@ export const products = [
       stars: 4.5,
       count: 232
     },
-    price: 4599,
+    price: 7200,
     keywords: [
       "bedroom",
       "curtains",
@@ -225,7 +225,7 @@ export const products = [
       stars: 4,
       count: 160
     },
-    price: 1699,
+    price: 2500,
     keywords: [
       "shorts",
       "apparel",
@@ -240,7 +240,7 @@ export const products = [
       stars: 5,
       count: 846
     },
-    price: 3074,
+    price: 8000,
     keywords: [
       "water boiler",
       "appliances",
@@ -255,7 +255,7 @@ export const products = [
       stars: 4,
       count: 99
     },
-    price: 2374,
+    price: 2500,
     keywords: [
       "kleenex",
       "tissues",
@@ -272,7 +272,7 @@ export const products = [
       stars: 4,
       count: 215
     },
-    price: 2200,
+    price: 5000,
     keywords: [
       "hats",
       "straw hats",
@@ -288,7 +288,7 @@ export const products = [
       stars: 4.5,
       count: 52
     },
-    price: 1799,
+    price: 1800,
     keywords: [
       "jewelry",
       "accessories",
@@ -303,7 +303,7 @@ export const products = [
       stars: 4.5,
       count: 2465
     },
-    price: 1374,
+    price: 13000,
     keywords: [
       "hooded",
       "hoodies",
@@ -322,7 +322,7 @@ export const products = [
       stars: 4.5,
       count: 119
     },
-    price: 1250,
+    price: 6000,
     keywords: [
       "bathmat",
       "bathroom",
@@ -337,7 +337,7 @@ export const products = [
       stars: 4,
       count: 326
     },
-    price: 2640,
+    price: 2700,
     keywords: [
       "shoes",
       "flats",
@@ -353,7 +353,7 @@ export const products = [
       stars: 4.5,
       count: 2556
     },
-    price: 1599,
+    price: 3500,
     keywords: [
       "tshirts",
       "shirts",
@@ -371,7 +371,7 @@ export const products = [
       stars: 4.5,
       count: 2286
     },
-    price: 8300,
+    price: 8500,
     keywords: [
       "garbage",
       "bins",
@@ -387,7 +387,7 @@ export const products = [
       stars: 4,
       count: 456
     },
-    price: 2399,
+    price: 12000,
     keywords: [
       "bedroom",
       "bed sheets",
@@ -404,7 +404,7 @@ export const products = [
       stars: 5,
       count: 83
     },
-    price: 1250,
+    price: 1850,
     keywords: [
       "hats",
       "winter hats",
@@ -422,7 +422,7 @@ export const products = [
       stars: 4.5,
       count: 9017
     },
-    price: 2290,
+    price: 5100,
     keywords: [
       "pants",
       "apparel",
@@ -437,7 +437,7 @@ export const products = [
       stars: 4,
       count: 229
     },
-    price: 3890,
+    price: 8000,
     keywords: [
       "shoes",
       "running shoes",
@@ -453,7 +453,7 @@ export const products = [
       stars: 3.5,
       count: 42
     },
-    price: 1690,
+    price: 4000,
     keywords: [
       "sunglasses",
       "glasses",
@@ -469,7 +469,7 @@ export const products = [
       stars: 4.5,
       count: 511
     },
-    price: 6797,
+    price: 42000,
     keywords: [
       "cooking set",
       "kitchen"
@@ -483,7 +483,7 @@ export const products = [
       stars: 4.5,
       count: 130
     },
-    price: 1649,
+    price: 19000,
     keywords: [
       "bathroom",
       "washroom",
@@ -499,7 +499,7 @@ export const products = [
       stars: 4.5,
       count: 248
     },
-    price: 2400,
+    price: 8000,
     keywords: [
       "pants",
       "sweatpants",
@@ -516,7 +516,7 @@ export const products = [
       stars: 4.5,
       count: 117
     },
-    price: 2400,
+    price: 3000,
     keywords: [
       "accessories",
       "womens"
@@ -530,7 +530,7 @@ export const products = [
       stars: 4,
       count: 126
     },
-    price: 2899,
+    price: 7500,
     keywords: [
       "boxes",
       "food containers",
@@ -545,7 +545,7 @@ export const products = [
       stars: 4.5,
       count: 1211
     },
-    price: 2250,
+    price: 30000,
     keywords: [
       "coffeemakers",
       "kitchen",
@@ -560,7 +560,7 @@ export const products = [
       stars: 4.5,
       count: 363
     },
-    price: 3099,
+    price: 10000,
     keywords: [
       "bedroom",
       "home"
@@ -574,7 +574,7 @@ export const products = [
       stars: 4.5,
       count: 93
     },
-    price: 2110,
+    price: 9500,
     keywords: [
       "bathroom",
       "home",
@@ -589,7 +589,7 @@ export const products = [
       stars: 4,
       count: 89
     },
-    price: 3390,
+    price: 3400,
     keywords: [
       "shoes",
       "running shoes",
@@ -605,7 +605,7 @@ export const products = [
       stars: 4,
       count: 3
     },
-    price: 10747,
+    price: 35000,
     keywords: [
       "food blenders",
       "kitchen",
@@ -620,7 +620,7 @@ export const products = [
       stars: 5,
       count: 679
     },
-    price: 3899,
+    price: 18000,
     keywords: [
       "mixing bowls",
       "baking",
@@ -636,7 +636,7 @@ export const products = [
       stars: 4.5,
       count: 1045
     },
-    price: 5799,
+    price: 5200,
     keywords: [
       "kitchen",
       "kitchen towels",
@@ -651,7 +651,7 @@ export const products = [
       stars: 4.5,
       count: 3157
     },
-    price: 2400,
+    price: 9000,
     keywords: [
       "sweaters",
       "hoodies",
