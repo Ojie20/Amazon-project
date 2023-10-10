@@ -1,4 +1,4 @@
-import { cart , removeFromCart, updateQuantity, calculatePrice} from "../data/cart.js";
+import { cart , removeFromCart, updateQuantity, calculatePrice, placeOrder} from "../data/cart.js";
 import { products } from "../data/products.js";
 
 const d = new Date();
@@ -134,3 +134,7 @@ document.querySelectorAll('.js-save-link').forEach((link)=>{
     calculatePrice();
   })
 }) 
+
+document.querySelector('.js-place-order-button').addEventListener('click',()=>{
+  placeOrder();
+})

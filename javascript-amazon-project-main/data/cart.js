@@ -1,4 +1,19 @@
 import { products } from "../data/products.js";
+import { genId } from "../utils/id-gen.js";
+
+export let orderedItems = [];
+
+export function placeOrder() {
+  orderedItems.push(
+    {
+      cart: cart,
+      id: genId(orderedItems)
+    }
+  )
+  console.log(orderedItems);
+  cart = [];
+  saveToStorage();
+}
 
 export function calculatePrice() {
   let prePrice=0;

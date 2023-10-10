@@ -1,4 +1,4 @@
-export function genPass(length, upper,lower,num,sym) {
+export function genId(orderedItems) {
   let characters ='';
   characters+='1234567890';
   characters+='abcdefghijklmnopqrstuvwxyz';
@@ -6,7 +6,13 @@ export function genPass(length, upper,lower,num,sym) {
 
   while (idArray.length < 9) {
       const character = characters[Math.floor(Math.random()*characters.length)];
-      passwordArray.push(character);
+      idArray.push(character);
   }
-  return passwordArray.join('');
+  orderedItems.forEach((item) => {
+    if (idArray.join('')=== item.id) {
+      genId(orderedItems);
+      return
+    }
+  });
+  return idArray.join('');
 }
