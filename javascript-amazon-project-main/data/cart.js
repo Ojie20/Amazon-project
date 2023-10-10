@@ -1,3 +1,26 @@
+import { products } from "../data/products.js";
+
+export function calculatePrice() {
+  let prePrice=0;
+  cart.forEach((cartItem)=>{
+    const productId = cartItem.productId;
+    let matchingProduct;
+    products.forEach((product)=>{
+      if (product.id=== productId){
+        matchingProduct=product;
+      }
+    });
+    prePrice += matchingProduct.price * cartItem.quantity
+  });
+  document.querySelector('.js-pre-price').innerHTML= prePrice;
+
+  let taxPrice = (prePrice*5)/100
+  document.querySelector('.js-tax-price').innerHTML= taxPrice;
+
+  let totalPrice = prePrice +taxPrice;
+  document.querySelector('.js-total-price').innerHTML= totalPrice;
+}
+
 export let cart=JSON.parse(localStorage.getItem('cart'));
 
 if (!cart) {

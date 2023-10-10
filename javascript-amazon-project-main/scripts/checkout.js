@@ -1,27 +1,14 @@
-import { cart , removeFromCart, updateQuantity} from "../data/cart.js";
+import { cart , removeFromCart, updateQuantity, calculatePrice} from "../data/cart.js";
 import { products } from "../data/products.js";
 
+const d = new Date();
+ let msec = Date.parse(d);
+ console.log(msec);
 
-function calculatePrice() {
-  let prePrice=0;
-  cart.forEach((cartItem)=>{
-    const productId = cartItem.productId;
-    let matchingProduct;
-    products.forEach((product)=>{
-      if (product.id=== productId){
-        matchingProduct=product;
-      }
-    });
-    prePrice += matchingProduct.price * cartItem.quantity
-  });
-  document.querySelector('.js-pre-price').innerHTML= prePrice;
-
-  let taxPrice = (prePrice*5)/100
-  document.querySelector('.js-tax-price').innerHTML= taxPrice;
-
-  let totalPrice = prePrice +taxPrice;
-  document.querySelector('.js-total-price').innerHTML= totalPrice;
-}
+let deliveryCalc = msec + 604800000;
+let deliveryDate = new Date(deliveryCalc);
+console.log(deliveryDate.toDateString());
+console.log(d.toDateString());
 
 calculatePrice();
 
@@ -60,7 +47,7 @@ cart.forEach((cartItem) => {
 cartSummaryHTMl += `
       <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
       <div class="delivery-date">
-        Delivery date: Tuesday, June 21
+        Delivery date: ${deliveryDate.toDateString()}
       </div>
 
       <div class="cart-item-details-grid">
@@ -89,50 +76,6 @@ cartSummaryHTMl += `
           </div>
         </div>
 
-        <div class="delivery-options">
-          <div class="delivery-options-title">
-            Choose a delivery option:
-          </div>
-          <div class="delivery-option">
-            <input type="radio" checked
-              class="delivery-option-input"
-              name="delivery-option-${matchingProduct.id}">
-            <div>
-              <div class="delivery-option-date">
-                Tuesday, June 21
-              </div>
-              <div class="delivery-option-price">
-                FREE Shipping
-              </div>
-            </div>
-          </div>
-          <div class="delivery-option">
-            <input type="radio"
-              class="delivery-option-input"
-              name="delivery-option-${matchingProduct.id}">
-            <div>
-              <div class="delivery-option-date">
-                Wednesday, June 15
-              </div>
-              <div class="delivery-option-price">
-                $4.99 - Shipping
-              </div>
-            </div>
-          </div>
-          <div class="delivery-option">
-            <input type="radio"
-              class="delivery-option-input"
-              name="delivery-option-${matchingProduct.id}">
-            <div>
-              <div class="delivery-option-date">
-                Monday, June 13
-              </div>
-              <div class="delivery-option-price">
-                $9.99 - Shipping
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       </div>
 `;
