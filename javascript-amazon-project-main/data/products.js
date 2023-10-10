@@ -9,7 +9,7 @@ export const products = [
       stars: 4.5,
       count: 87
     },
-    price: 3000,
+    price: 2000,
     keywords: [
       "socks",
       "sports",

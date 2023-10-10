@@ -1,21 +1,51 @@
 import { products } from "../data/products.js";
 import { genId } from "../utils/id-gen.js";
 
-export let orderedItems = [];
+export let orderedItems = JSON.parse(localStorage.getItem('ordered'));
+
+if (!orderedItems) {
+  orderedItems = [];
+}
+
 
 export function placeOrder() {
   orderedItems.push(
     {
       cart: cart,
-      id: genId(orderedItems)
+      id: genId(orderedItems),
+      price : calculatePrice('value'),
+      orderdate : new Date().toDateString(),
     }
   )
   console.log(orderedItems);
+  console.log(deliverydate(orderedItems[0].orderdate));
   cart = [];
   saveToStorage();
 }
 
-export function calculatePrice() {
+function deliverydate(orderdate) {
+  let msec = Date.parse(orderdate);
+
+
+let deliveryCalc = msec + 604800000;
+let deliveryDate = new Date(deliveryCalc);
+return deliveryDate;
+}
+
+
+export let cart=JSON.parse(localStorage.getItem('cart'));
+
+if (!cart) {
+  cart = [];
+}
+
+export function saveToStorage() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('ordered', JSON.stringify(orderedItems))
+}
+
+
+export function calculatePrice(use) {
   let prePrice=0;
   cart.forEach((cartItem)=>{
     const productId = cartItem.productId;
@@ -27,25 +57,18 @@ export function calculatePrice() {
     });
     prePrice += matchingProduct.price * cartItem.quantity
   });
-  document.querySelector('.js-pre-price').innerHTML= prePrice;
-
   let taxPrice = (prePrice*5)/100
-  document.querySelector('.js-tax-price').innerHTML= taxPrice;
-
   let totalPrice = prePrice +taxPrice;
+
+  if(use=== 'value'){
+    return totalPrice
+  }
+
+  document.querySelector('.js-pre-price').innerHTML= prePrice;
+  document.querySelector('.js-tax-price').innerHTML= taxPrice;
   document.querySelector('.js-total-price').innerHTML= totalPrice;
 }
 
-export let cart=JSON.parse(localStorage.getItem('cart'));
-
-if (!cart) {
-  cart = [];
-}
-
-
-function saveToStorage() {
-  localStorage.setItem('cart', JSON.stringify(cart))
-}
 
 // Function to Add items to cart
 export function addToCart(productId) {
